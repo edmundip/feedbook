@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <metadata>
+        <dc:title>{{title}}</dc:title>
+        <dc:creator>feedbook</dc:creator>
+        <dc:language>en</dc:language>
+        <dc:identifier id="bookid">bookid</dc:identifier>
+    </metadata>
+    <manifest>
+        <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+        <item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/>
+{{manifest_article}}
+    </manifest>
+    <spine toc="ncx">
+        <itemref idref="cover"/>
+{{toc_article}}
+    </spine>
+</package>
