@@ -108,6 +108,7 @@ def create_book(book_content_folderpath, book_output_filename="output.epub"):
 
 def cleanup_folder(book_content_folderpath):
     oebps_folder = os.path.join(book_content_folderpath, 'OEBPS')
+    os.makedirs(oebps_folder, exist_ok=True)
     for filename in os.listdir(oebps_folder):
         if filename.startswith('article'):
             file_path = os.path.join(oebps_folder, filename)
