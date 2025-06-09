@@ -10,26 +10,26 @@ import zipfile
 def save_content(feed, title, content_template_filename, content_output_filename):
     # read the content template file
     with open(content_template_filename, 'r') as content_template_file:
-        content_content = content_template_file.read()
+        content = content_template_file.read()
     content_template_file.close()
 
-    # update the content content
-    content_content = content_content.replace('{{title}}', title)
+    # update the content
+    content = content.replace('{{title}}', title)
 
     manifest_article = ''
     for index, entry in enumerate(feed.entries, start=1):
         manifest_article = manifest_article + \
             f'\n        <item id="article{index}" href="article{index}.xhtml" media-type="application/xhtml+xml"/>'
-    content_content = content_content.replace('{{manifest_article}}', manifest_article)
+    content = content.replace('{{manifest_article}}', manifest_article)
 
     toc_article = ''
     for index, entry in enumerate(feed.entries, start=1):
         toc_article = toc_article + f'\n        <itemref idref="article{index}"/>'
-    content_content = content_content.replace('{{toc_article}}', toc_article)
+    content = content.replace('{{toc_article}}', toc_article)
 
     # write the content
     with open(content_output_filename, 'w') as content_output_file:
-        content_output_file.write(content_content)
+        content_output_file.write(content)
     content_output_file.close()
 
 def save_toc(feed, title, toc_template_filename, toc_output_filename):
