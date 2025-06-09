@@ -27,8 +27,7 @@ def save_content(feed, title, content_template_filename, content_output_filename
         toc_article = toc_article + f'\n        <itemref idref="article{index}"/>'
     content_content = content_content.replace('{{toc_article}}', toc_article)
 
-
-    # write the content content
+    # write the content
     with open(content_output_filename, 'w') as content_output_file:
         content_output_file.write(content_content)
     content_output_file.close()
