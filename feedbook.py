@@ -123,6 +123,7 @@ def make_feedbook(rss_feed_url, title, output_file_epub):
     for index, entry in enumerate(feed.entries, start=1):
         save_article(entry, './book/template/article.xhtml', f"./book/OEBPS/article{index}.xhtml")
     create_book('./book', output_file_epub)
+    cleanup_folder('./book')
 
 def main():
     if len(sys.argv) == 4:
